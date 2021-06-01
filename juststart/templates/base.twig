@@ -1,0 +1,25 @@
+{#
+ # Default template
+#}
+
+<!DOCTYPE html>
+<html {{ site.language_attributes }}>
+    {{ function('wp_head') }}
+    {% include "partials/header/site-head.twig" %}
+
+    <body {% if body_class is defined and body_class is not empty %} class="{{ body_class }}" {% endif %}>
+        {% include "partials/header/header.twig" %}
+
+        <main class="wrapper-content">
+            {% include templates %}
+        </main>
+
+        {% include 'partials/footer/footer.twig' %}
+
+    </body>
+    {{ function('wp_footer') }}
+
+    {% if WP_ENV == "development" or WP_ENV == "staging" %}
+        <!-- Version: {{ constant('APPLICATION_VERSION') ?: 'undefined' }}. Performance: {{ function('get_num_queries') }} queries in {{ function('timer_stop') }} seconds -->
+    {% endif %}
+</html>
