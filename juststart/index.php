@@ -1,6 +1,6 @@
 <?php
 /**
- * The main template file.
+ * The main template file
  *
  * This is the most generic template file in a WordPress theme
  * and one of the two required files for a theme (the other being style.css).
@@ -13,7 +13,8 @@
  */
 
 $context = Timber::get_context();
-$context['post'] = new Timber\Post();
-$context['templates'] = 'content/default.twig';
+$context['page'] = new Timber\Post();
+$context['posts'] = new Timber\PostQuery();
+$context['templates'] = 'content/archive.twig';
 
 Timber::render('base.twig', $context);
