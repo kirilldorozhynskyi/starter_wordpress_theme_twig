@@ -1,0 +1,33 @@
+{#
+ # File: /_header.twig
+ # Project: _juststart
+ # Version: 1.0.0
+ # Created Date: Tuesday, June 1st 2021, 23:35:34
+ # Author: Kirill Dorozhynskyi - kyrylo.dorozhynskyi@justdev.org
+ # -----
+ # Last Modified: Sunday, June 6th 2021 19:13:00
+ # Modified By: Kirill Dorozhynskyi
+ # -----
+ # Copyright (c) 2021 justDev
+ # 
+ # Header
+ # 
+ #}
+
+<header class="header">
+	<div class="container d-flex">
+		<a href="{{ site.url }}" rel="home" title="{{ site.title }}">{{ site.title }}</a>
+
+		<ul class="navbar-nav flex-row flex-wrap bd-navbar-nav pt-2 py-md-0">
+			{% for item in menu.items %}
+				<li class="nav-item">
+					<a class="nav-link p-2{{ item.current ? ' active' }}"
+						href="{{ item.url }}"
+						title="{{ item.title }}">
+						{{ item.title }}
+					</a>
+				</li>
+			{% endfor %}
+		</ul>
+	</div>
+</header>

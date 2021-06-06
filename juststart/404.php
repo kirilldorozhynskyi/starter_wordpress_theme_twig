@@ -1,6 +1,6 @@
 <?php
 /**
- * The 404 template file.
+ * The template for displaying 404 pages (Not Found)
  *
  * This is the most generic template file in a WordPress theme
  * and one of the two required files for a theme (the other being style.css).
@@ -14,6 +14,6 @@
 
 $context = Timber::get_context();
 $context['post'] = new Timber\Post();
-$context['templates'] = 'content/default.twig';
+$context['templates'] = 'content/404.twig';
 
 Timber::render('base.twig', $context);

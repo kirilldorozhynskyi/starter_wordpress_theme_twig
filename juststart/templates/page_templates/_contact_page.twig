@@ -1,0 +1,22 @@
+{#
+ # File: /_contact_page.twig
+ # Project: _juststart
+ # Version: 1.0.0
+ # Created Date: Sunday, June 6th 2021, 9:18:35
+ # Author: Kirill Dorozhynskyi - kyrylo.dorozhynskyi@justdev.org
+ # -----
+ # Last Modified: Sunday, June 6th 2021 19:13:12
+ # Modified By: Kirill Dorozhynskyi
+ # -----
+ # Copyright (c) 2021 justDev
+ # 
+ # Contact Block
+ # 
+ #}
+
+{% include 'contact/_contact.twig' with {
+	ce: {
+		title: page.meta('title'),
+		text: page.meta('text')
+	}
+} %}
