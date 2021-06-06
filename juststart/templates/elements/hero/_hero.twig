@@ -1,0 +1,39 @@
+{#
+ # File: /_hero.twig
+ # Project: _juststart
+ # Version: 1.0.0
+ # Created Date: Sunday, June 6th 2021, 17:28:07
+ # Author: Kirill Dorozhynskyi - kyrylo.dorozhynskyi@justdev.org
+ # -----
+ # Last Modified: Sunday, June 6th 2021 19:13:17
+ # Modified By: Kirill Dorozhynskyi
+ # -----
+ # Copyright (c) 2021 justDev
+ # 
+ # Hero
+ # 
+ #}
+
+<section>
+	<div class="container">
+		<div class="row align-items-center">
+			<div class="col-md-6">
+				{% if ce.title %}
+					<h1>
+						{{ ce.title }}
+					</h1>
+				{% endif %}
+				{% if ce.text %}
+					<p>
+						{{ ce.text }}
+					</p>
+				{% endif %}
+			</div>
+			{% if ce.image %}
+				<div class="col-md-6">
+					<img src="{{ Image(ce.image) }}" class="w-100 h-auto" />
+				</div>
+			{% endif %}
+		</div>
+	</div>
+</section>
