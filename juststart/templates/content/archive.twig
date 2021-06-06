@@ -1,0 +1,46 @@
+{#
+ # File: /archive.twig
+ # Project: _juststart
+ # Version: 1.0.0
+ # Created Date: Sunday, June 6th 2021, 16:44:05
+ # Author: Kirill Dorozhynskyi - kyrylo.dorozhynskyi@justdev.org
+ # -----
+ # Last Modified: Sunday, June 6th 2021 19:13:32
+ # Modified By: Kirill Dorozhynskyi
+ # -----
+ # Copyright (c) 2021 justDev
+ # 
+ # Archive
+ # 
+ #}
+
+<section class="mt-5 mb-5">
+	<div class="container">
+		<div class="row">
+			{% for item in posts %}
+				<div class="col-md-4">
+					<a href="{{ item.link }}" title="{{ item.title }}">
+						{{ item.title }}
+					</a>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+
+	{% if posts.pagination is not empty %}
+		<nav class="pagination d-flex justify-content-evenly mt-5"
+			aria-label="Page navigation">
+			<a href="{{ posts.pagination.prev.link }}"
+				class="prev {{ posts.pagination.prev.link|length ? '' : 'disabled' }}"
+				title="{{ __('Prev', '_juststart') }}">
+				{{ __('Prev', '_juststart') }}
+			</a>
+
+			<a href="{{ posts.pagination.next.link }}"
+				class="prev {{ posts.pagination.next.link|length ? '' : 'disabled' }}"
+				title=" {{ __('Next', '_juststart') }}">
+				{{ __('Next', '_juststart') }}
+			</a>
+		</nav>
+	{% endif %}
+</section>
