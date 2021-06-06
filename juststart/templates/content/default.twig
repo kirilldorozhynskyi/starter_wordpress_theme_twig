@@ -2,24 +2,30 @@
  # File: /default.twig
  # Project: _juststart
  # Version: 1.0.0
- # Created Date: Tuesday, June 1st 2021, 0:47:38
- # Author: Kirill Dorozhynskyi - kirilldy@justdev.org
+ # Created Date: Tuesday, June 1st 2021, 23:35:34
+ # Author: Kirill Dorozhynskyi - kyrylo.dorozhynskyi@justdev.org
  # -----
- # Last Modified: Tuesday, June 1st 2021 20:01:24
+ # Last Modified: Sunday, June 6th 2021 19:13:35
  # Modified By: Kirill Dorozhynskyi
  # -----
  # Copyright (c) 2021 justDev
  # 
- # Information
+ # Default
  # 
  #}
 
-<section>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                {{ post.content }}
-            </div>
-        </div>
-    </div>
-</section>
+{% block content %}
+	{% if renderCE('flexible_content') %}
+		{{ renderCE('flexible_content') }}
+	{% else %}
+		<section class="mt-5 mb-5">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						{{ post.content ? post.content : page.content }}
+					</div>
+				</div>
+			</div>
+		</section>
+	{% endif %}
+{% endblock %}
