@@ -5,13 +5,29 @@ echo What is your theme name?
 read APP_NAME
 echo Your theme name is: $APP_NAME
 
-echo What is your WordPress theme path? exemple user/wordpress/wp-content/theme
-read APP_PATH
-echo Your theme path is: $APP_PATH
-cp -r `dirname "$0"`/juststart  $APP_PATH
-cd $APP_PATH
-
-mv juststart $APP_NAME
-cd $APP_PATH/$APP_NAME
+#  String replace
 grep -rli "_juststart" * | xargs -I@ sed -i "" "s/_juststart/$APP_NAME/g" @
+
+#  Remove composer
+if [[ -f composer.json ]] && [[ -f composer.lock ]]
+then
+    rm composer.lock
+    rm composer.json
+fi
+
+#  Remove composer vedor
+if [[ -f vendor ]]
+then
+    rmdir vendor/
+fi
+
+if [[ -f install.sh ]]
+then
+    rm install.sh
+fi
+
+#  Change translate
+cd languages/
+mv _jdlang.pot $APP_NAME.pot
+
 echo Your theme was install

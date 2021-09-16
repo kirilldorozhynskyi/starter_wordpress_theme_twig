@@ -1,0 +1,40 @@
+{
+  "name": "justdev/jdwptheme",
+  "type": "project",
+  "license": "MIT",
+  "description": "WordPress boilerplate theme foe modern development",
+  "homepage": "https://github.com/kirilldorozhynskyi/juststart",
+  "authors": [
+    {
+      "name": "Kirill Dorozhynskyi",
+      "email": "kyrylo.dorozhynskyi@justdev.org",
+      "homepage": "https://github.com/kirilldorozhynskyi"
+    }
+  ],
+  "keywords": [
+    "composer",
+    "wordpress",
+    "wp",
+    "wp-config"
+  ],
+  "support": {
+    "issues": "https://github.com/kirilldorozhynskyi/juststart/issues"
+  },
+  "require": {
+    "php": ">=7.3",
+    "composer/installers": "^1.11"
+  },
+  "autoload": {
+    "psr-0": {
+      "Roots\\Installer": "scripts"
+    }
+  },
+  "scripts": {
+    "post-root-package-install": [
+      "@install"
+    ],
+    "install": [
+      "bash install.sh"
+    ]
+  }
+}

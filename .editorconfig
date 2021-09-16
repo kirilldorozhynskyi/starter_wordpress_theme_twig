@@ -16,7 +16,7 @@ max_line_length=160
 
 # 4 space indentation
 indent_size = 4
-indent_style = space
+indent_style = tab
 
 # remove any whitespace characters preceding newline characters
 trim_trailing_whitespace = true
@@ -34,4 +34,9 @@ trim_trailing_whitespace = false
 ### custom for yml
 [*.yml, *.json]
 indent_size = 2
-indent_style = spaces
+indent_style = tab
+
+### custom for yml
+[*.js]
+indent_size = 2
+indent_style = tab
