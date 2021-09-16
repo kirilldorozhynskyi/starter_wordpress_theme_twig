@@ -2,26 +2,26 @@
 
 # WordPress TWIG Starter
 
-This is a set of tools for creating a wordpress twig environment for your project.
+## Overview
+This is WordPress theme with custom identity
 
-## Installation and Use
+## Features
+- Dependency management with [Composer](https://getcomposer.org)
 
-Install the theme.
+## Requirements
 
-```sh
+- PHP >= 7.1
+- Composer - [Install](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx)
 
-cd  'project-name'
+## Installation
 
-sh install.sh
-```
-Create your theme
-In ***theme path***, you must specify the real path to your WordPress project, the ***themes*** folder
-Exemple: 
-/Users/*username*/wordpress/wp-content/themes
+1. Create a new WordPress theme. In your /wp-content/themes/
+   ```sh
+   $ composer create-project justdev/jdwptheme theme-name
+   ```
+2. Open your WP admin and activate your new theme
 
-## Install WordPress Starter theme by justDev
-
-### To use this theme you need to install:
+## To use this theme you need to install:
 
  1. ACF or ACF PRO
 
@@ -47,9 +47,9 @@ In the theme settings you can
 - Remove all standard styles and scripts
 
 - Connect a custom frontend with such capabilities
-		- Only assets (use css/js/images/icons from frontend)
-		- Only templates (use twig templates from frontend)
-		- Mix (use full frontend)
+	- Only assets (use css/js/images/icons from frontend)
+	- Only templates (use twig templates from frontend)
+	- Mix (use full frontend)
 
  4. FrontEnd
 
