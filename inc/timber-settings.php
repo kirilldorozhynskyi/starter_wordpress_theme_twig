@@ -116,7 +116,7 @@ function add_to_twig($twig)
 }
 
 /**
- * Example
+ * Sprite
  *
  * @param $icon
  * @param $class
@@ -125,8 +125,10 @@ function add_to_twig($twig)
 function sprite($icon = null, $class = null)
 {
 	$sprite =
-		"<svg class='sprite" .
+		"<svg class='sprite " .
 		$icon .
+		' ' .
+		$class .
 		"'><use xlink:href='" .
 		get_template_directory_uri() .
 		'/frontend/dist/assets/img/symbol-sprite.svg#' .
@@ -178,6 +180,7 @@ function renderCE($elements)
 			$context['ce'][$name] = $value;
 		}
 
+		$context['page'] = new Timber\Post();
 		$render .= Timber::compile($template_path . $fields['acf_fc_layout'] . '/_' . $fields['acf_fc_layout'] . '.twig', $context);
 	}
 	return $render;
