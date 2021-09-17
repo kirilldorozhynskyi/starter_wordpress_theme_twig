@@ -1,12 +1,10 @@
 #!/bin/bash
 set -e
 
-echo What is your theme name?
-read APP_NAME
-echo Your theme name is: $APP_NAME
+echo Your theme name is: ${PWD##*/}
 
 #  String replace
-grep -rli "_juststart" * | xargs -I@ sed -i "" "s/_juststart/$APP_NAME/g" @
+grep -rli "_juststart" * | xargs -I@ sed -i "" "s/_juststart/${PWD##*/}/g" @
 
 #  Remove composer
 if [[ -f composer.json ]] && [[ -f composer.lock ]]
@@ -16,7 +14,7 @@ then
 fi
 
 #  Remove composer vedor
-rmdir vendor
+rm -rf vendor/
 
 if [[ -f install.sh ]]
 then
@@ -25,6 +23,6 @@ fi
 
 #  Change translate
 cd languages/
-mv _jdlang.pot $APP_NAME.pot
+mv _jdlang.pot ${PWD##*/}.pot
 
 echo Your theme was install
