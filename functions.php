@@ -16,8 +16,20 @@ if (!defined('ABSPATH')) {
  * This ensures that Timber is loaded and available as a PHP class.
  * If not, it gives an error message to help direct developers on where to activate
  */
-if (!class_exists('Timber') or !class_exists('ACF')) {
-	if (!class_exists('Timber')) {
+$Timber = CONTENT_DIR . '/vendor/timber/timber/lib/Core.php';
+
+if (!class_exists('Timber')) {
+	if (!file_exists($Timber)) {
+		$timber = false;
+	} else {
+		$timber = true;
+	}
+} else {
+	$timber = true;
+}
+
+if (!class_exists('ACF') or !$timber) {
+	if (!$timber) {
 		add_action('admin_notices', function () {
 			echo '<div class="error"><p>Timber not activated. Make sure you activate the plugin <a href="https://wordpress.org/plugins/timber-library/">Timber</a></p></div>';
 		});

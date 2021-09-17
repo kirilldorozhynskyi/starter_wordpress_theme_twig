@@ -8,6 +8,12 @@
  * @since justTheme 1.0.0
  */
 
+$composer_autoload = CONTENT_DIR . '/vendor/autoload.php';
+if (file_exists($composer_autoload)) {
+	require_once $composer_autoload;
+	$timber = new Timber\Timber();
+}
+
 /**
  * Get WordPress Theme Settings
  */
