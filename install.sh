@@ -16,10 +16,7 @@ then
 fi
 
 #  Remove composer vedor
-if [[ -f vendor ]]
-then
-    rmdir vendor/
-fi
+rmdir vendor
 
 if [[ -f install.sh ]]
 then
